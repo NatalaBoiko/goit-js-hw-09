@@ -25,7 +25,6 @@ const options = {
     if (deltaTime < 0) {
       Notify.failure('Please choose a date in the future');
       btnEl.disabeled = true;
-      // btnEl.textContent = 'oops';
     }
     btnEl.disabeled = false;
   },
@@ -83,41 +82,3 @@ const onBtnClick = () => {
   }, 1000);
 };
 btnEl.addEventListener('click', onBtnClick);
-
-//
-//
-//
-//
-
-// мабуть, таймер зупиняти не варто...
-
-// const onBtnClickStart = () => {
-//   if (timerId) return;
-//   const timerStart = fp.selectedDates[0];
-//   timerId = setInterval(() => {
-//     btnEl.textContent = 'Stop';
-//     if (timerStart.getTime() <= Date.now()) {
-//       clearInterval(timerId);
-//       return;
-//     }
-//     const deltaTime = timerStart - Date.now();
-//     const time = convertMs(deltaTime);
-//     updateTimer(time);
-//   }, 1000);
-// };
-
-// const onBtnClickStop = () => {
-//   if (timerId) {
-//     clearInterval(timerId);
-//     btnEl.textContent = 'Start';
-//     timerId = null;
-//   }
-// };
-
-// const onBtnClick = () => {
-//   if (timerId) {
-//     onBtnClickStop();
-//   } else onBtnClickStart();
-// };
-
-// btnEl.addEventListener('click', onBtnClick);

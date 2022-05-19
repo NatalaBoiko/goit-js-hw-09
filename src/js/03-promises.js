@@ -39,5 +39,5 @@ function onBtnClick(evt) {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
   }
-  formEl.reset();
+  // formEl.reset();
 }
