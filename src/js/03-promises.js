@@ -30,7 +30,7 @@ function onBtnClick(evt) {
   let newDelay = delay;
 
   for (let position = 0; position < amount; position += 1) {
-    // newDelay += delayStep;
+    newDelay += delayStep;
     createPromise({ position, newDelay })
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -38,7 +38,6 @@ function onBtnClick(evt) {
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
-    newDelay += delayStep;
   }
   formEl.reset();
 }
