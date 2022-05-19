@@ -12,12 +12,13 @@ button {
   font-weight: 700;
   color: rgb(146, 183, 146);
 }
-button:hover {
+/* button:hover {
+  border-color: rgb(109, 125, 113);
+  background-color: rgba(92, 165, 115, 0.536);
+  color: rgb(29, 99, 29);
+} */
+.is-active:hover {
   border-color: rgb(109, 125, 113);
   background-color: rgba(92, 165, 115, 0.536);
   color: rgb(29, 99, 29);
 }
-/* button:focus {
-  border-color: rgb(65, 78, 68);
-  background-color: rgba(67, 91, 91, 0.132);
-} */
