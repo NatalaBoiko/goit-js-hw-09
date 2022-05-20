@@ -5,18 +5,21 @@ const start = document.querySelector('[data-start]');
 const stop = document.querySelector('[data-stop]');
 const body = document.querySelector('body');
 
-start.classList.add('is-active');
-
-let timer = null;
-
 window.addEventListener('click', onStartBtnClick);
 window.addEventListener('click', onStopBtnClick);
+
+start.classList.add('is-active');
+stop.disabled = true;
+
+let timer = null;
 
 function onStartBtnClick(event) {
   if (event.target.textContent !== 'Start') {
     return;
   }
-  start.setAttribute('disabled', '');
+  start.disabled = true;
+  stop.disabled = false;
+
   timer = setInterval(() => {
     body.style.backgroundColor = `${getRandomHexColor()}`;
   }, 1000);
@@ -30,7 +33,7 @@ function onStopBtnClick(event) {
   }
   clearInterval(timer);
   // body.style.backgroundColor = '';
-  start.removeAttribute('disabled');
+  start.disabled = false;
   stop.classList.toggle('is-active');
   start.classList.toggle('is-active');
 }

@@ -68,6 +68,8 @@ function updateTimer({ days, hours, minutes, seconds }) {
 
 const onBtnClick = () => {
   if (timerId) return;
+  btnEl.disabled = true;
+  inputEl.disabled = true;
   const timerStart = fp.selectedDates[0];
   timerId = setInterval(() => {
     if (timerStart.getTime() <= Date.now()) {
@@ -76,7 +78,6 @@ const onBtnClick = () => {
     }
     const deltaTime = timerStart - Date.now();
     const time = convertMs(deltaTime);
-    btnEl.textContent = 'timer on';
 
     updateTimer(time);
   }, 1000);
