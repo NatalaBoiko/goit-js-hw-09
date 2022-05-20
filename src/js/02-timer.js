@@ -18,15 +18,18 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+    // console.log(selectedDates[0]);
     const selectedDate = this.selectedDates[0].getTime();
     const currentDate = Date.now();
     const deltaTime = selectedDate - currentDate;
+
     if (deltaTime < 0) {
       Notify.failure('Please choose a date in the future');
-      btnEl.disabeled = true;
+      btnEl.disabled = true;
+    } else {
+      btnEl.disabled = false;
+      inputEl.disabled = true;
     }
-    btnEl.disabeled = false;
   },
 };
 
@@ -67,9 +70,10 @@ function updateTimer({ days, hours, minutes, seconds }) {
 }
 
 const onBtnClick = () => {
-  if (timerId) return;
-  btnEl.disabled = true;
-  inputEl.disabled = true;
+  if (timerId) {
+    btnEl.disabled = true;
+  }
+
   const timerStart = fp.selectedDates[0];
   timerId = setInterval(() => {
     if (timerStart.getTime() <= Date.now()) {
