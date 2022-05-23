@@ -23,7 +23,7 @@ const options = {
     const currentDate = Date.now();
     const deltaTime = selectedDate - currentDate;
 
-    if (deltaTime < 0) {
+    if (deltaTime <= 0) {
       Notify.failure('Please choose a date in the future');
       btnEl.disabled = true;
     } else {
@@ -70,9 +70,7 @@ function updateTimer({ days, hours, minutes, seconds }) {
 }
 
 const onBtnClick = () => {
-  if (timerId) {
-    btnEl.disabled = true;
-  }
+  btnEl.disabled = true;
 
   const timerStart = fp.selectedDates[0];
   timerId = setInterval(() => {
